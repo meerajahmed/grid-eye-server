@@ -1,0 +1,26 @@
+{
+  "name": "grid-eye-server",
+  "version": "1.0.0",
+  "description": "Grid Eye Server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meerajahmed/grid-eye-server.git"
+  },
+  "keywords": [
+    "Grid Eye",
+    "Socket.io"
+  ],
+  "author": "Meeraj Ahmed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meerajahmed/grid-eye-server/issues"
+  },
+  "homepage": "https://github.com/meerajahmed/grid-eye-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

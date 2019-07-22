@@ -1,11 +1,18 @@
-const app = require('express')();
-const http = require('http').createServer(app);
+const path = require("path");
+const http = require('http');
+const express = require('express');
+const app = express();
+
+const server = http.createServer(app);
+const publicPath = path.join(__dirname, "public");
 const port = 3000;
 
-app.get('*', function(req, res){
-    res.send('<h1>Hello world</h1>');
+app.use(express.static(publicPath));
+
+app.get('*',(req, res) => {
+    res.sendFile(path.join(publicPath, "index.html"));
 });
 
-http.listen(port, function(){
+server.listen(port, () => {
     console.log(`App is running: 🌎 http://localhost:${port}`)
 });

@@ -22,14 +22,14 @@ app.get('/',(req, res) => {
 // server ref -> io
 io.on('connection', (socket) => {
     // client ref -> socket
-    console.log('A user connected');
+    console.log('Grid eye connected');
 
-    socket.on('time', function(timeString) {
-       console.log(timeString);
+    socket.on('from_grid_eye', function(data) {
+       console.log(data);
     });
 
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        console.log('Grid eye disconnected');
     });
 });
 

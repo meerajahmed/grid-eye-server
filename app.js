@@ -13,12 +13,21 @@ const port = 3000;
 
 app.use(express.static(publicPath));
 
-app.get('*',(req, res) => {
+app.get('/',(req, res) => {
     res.sendFile(path.join(publicPath, "index.html"));
 });
 
+// server ref -> io
 io.on('connection', (socket) => {
+    // client ref -> socket
     console.log('A user connected');
+    // send message to every one
+    socket.broadcast.emit('hi');
+    socket.on('chat message', function(msg){
+        console.log('message: ' + msg);
+        // send the message to everyone, including the sender
+        io.emit('chat message', msg);
+    });
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });

@@ -22,6 +22,7 @@
   "homepage": "https://github.com/meerajahmed/grid-eye-server#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "jquery": "^3.4.1",
     "socket.io": "^2.2.0"
   }
 }

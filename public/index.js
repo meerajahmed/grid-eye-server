@@ -1,12 +1,10 @@
 $(function () {
     var socket = io();
-    $('form').submit(function(e){
-        e.preventDefault(); // prevents page reloading
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
+    const element = $('#messages');
+    socket.on('to_grid_eye_client', function(msg){  
+        element.append($('<li>').text(JSON.stringify(msg)));        
     });
-    socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-    });
+    setInterval(function() {
+        element[0].scrollTop = element[0].scrollHeight;
+    }, 500);
 });

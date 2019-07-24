@@ -26,6 +26,7 @@ io.on('connection', (socket) => {
 
     socket.on('from_grid_eye', function(data) {
        console.log(data);
+       socket.broadcast.emit("to_grid_eye_client", data);
     });
 
     socket.on('disconnect', () => {
